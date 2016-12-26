@@ -118,17 +118,16 @@
         </div>
       </div>
       <div class="row center">
-        <i class="fa fa-instagram" aria-hidden="true"></i>
-        <i class="fa fa-twitter" aria-hidden="true"></i>
-        <i class="fa fa-facebook" aria-hidden="true"></i>
-        <i class="fa fa-pintrest" aria-hidden="true"></i>
-        <i class="fa fa-pinterest-square" aria-hidden="true"></i>
+        <a href="#"><i class="fa fa-instagram black-text" aria-hidden="true"></i></a>
+        <a href="#"><i class="fa fa-twitter black-text" aria-hidden="true"></i></a>
+        <a href="#"><i class="fa fa-facebook black-text" aria-hidden="true"></i></a>
+        <a href="#"><i class="fa fa-pinterest-square black-text" aria-hidden="true"></i></a>
       </div>
     </div>
     <div class="footer-copyright">
       <div class="container">
-      © 2014 Copyright Text
-      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+       © 2016 Copyright ShpBuddy.com.gh
+      <!--<a class="grey-text text-lighten-4 right" href="#!">More Links</a>-->
       </div>
     </div>
    </footer>
