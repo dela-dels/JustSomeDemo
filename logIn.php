@@ -32,7 +32,7 @@
                                <form method="POST" action="">
                                   <div class="row">
                                      <div class="input-field col s12">
-                                       <i class=" small material-icons">email</i>
+                                        <i class=" small material-icons">email</i>
                                         <input placeholder="Enter your email" id="email" type="email" class="validate" required>
                                         <label for="email" class="active" data-error="wrong" data-success="right"></label>
                                      </div>
@@ -57,7 +57,7 @@
                    </div>
             </div>
           </div>
-          
+
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
   <script src="js/pageJs.js" charset="utf-8"></script>
