@@ -1,0 +1,53 @@
+.navbar-collapse{
+  box-shadow: 0px;
+  font-family: 'Libre Franklin', sans-serif;
+  color: black !important;
+}
+.navbar-collapse ,.brand-logo{
+  color: black;
+}
+.material-icons {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    text-align: center;
+}
+#superNav{
+  height: 70px;
+}
+.parallax img{
+  display: block;
+}
+.parallax{
+  position: static;
+}
+footer.page-footer {
+  margin-top:  0px !important;
+  padding-top: 0px !important;
+  font-family: 'Libre Franklin', sans-serif;
+}
+.center-align{
+  padding-top: 20px;
+}
+#headerText{
+  font-family: 'Raleway', sans-serif;
+}
+.large material-icons{
+  text-align: center;
+}
+.row{
+font-family: 'Libre Franklin', sans-serif;
+font-style: bold;
+}
+.fa{
+  padding-right: 20px;
+}
+#headtext{
+ /*font-family: arial, helvetica, sans-serif;*/
+  font-family: 'Raleway', sans-serif;
+  opacity: 20%;
+}
+#headtext hr{
+  width: 500px;
+}
