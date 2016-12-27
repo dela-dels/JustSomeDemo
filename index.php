@@ -43,7 +43,7 @@
     <!--Parallax effect -->
     <div class=" row container center-align" id="headtext">
       <h3 class="animated bounceInRight">Welcome to ShopBuddy</h3>
-      <hr>
+      <hr class="animated fadeInRight">
       <h5 class="animated bounceInLeft">Your shopping made easy</h5>
     </div>
    <div class="parallax-container">
@@ -126,7 +126,7 @@
     </div>
     <div class="footer-copyright">
       <div class="container">
-       © 2016 Copyright ShpBuddy.com.gh
+       © 2016 Copyright ShopBuddy.com.gh
       <!--<a class="grey-text text-lighten-4 right" href="#!">More Links</a>-->
       </div>
     </div>
