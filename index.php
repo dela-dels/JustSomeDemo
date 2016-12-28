@@ -51,7 +51,7 @@
    </div>
    <div class="row container">
     <div class="center-align">
-      <a class="waves-effect #ff3d00 deep-orange accent-3 waves-red btn-large" href="#">Sign Up</a>
+      <a class="waves-effect #ff3d00 deep-orange accent-3 waves-red btn-large" href="signUp.php">Sign Up</a>
     </div>
    </div>
    <div id="headerText" class="row container">
