@@ -1,5 +1,23 @@
 <?php
+ include_once('config.php');
+ include_once('class.user.php');
 
+  if (isset($_POST['Signin'])) {
+    # code...
+    $userMail = $_POST['umail'];
+    $userPassword = $_POST['upassword'];
+
+    print_r($userMail);
+    print_r($userPassword);
+
+  if ($user->userLogin($userMail,$userPassword)) {
+    # code...
+    $user->redirect('home.php');
+  }else {
+    # code...
+    $error = "Wrong Credentials!";
+  }
+}
  ?>
  <!DOCTYPE html>
  <html>
@@ -29,25 +47,37 @@
                          <div class="card">
                             <div class="card-content">
                                <span class="card-title black-text center-align">Sign In</span>
-                               <form method="POST" action="">
+                               <form method="POST" action="" name="login">
+                                 <?php
+                                       if(isset($error))
+                                       {
+                                             ?>
+                                             <div class="modal">
+                                                 <div class="modal-content">
+                                                   <h4>Wrong details!</h4>
+                                                 </div> &nbsp; <?php echo $error; ?> !
+                                             </div>
+                                             <?php
+                                       }
+                                       ?>
                                   <div class="row">
                                      <div class="input-field col s12">
                                         <i class=" small material-icons">email</i>
-                                        <input placeholder="Enter your email" id="email" type="email" class="validate" required>
+                                        <input placeholder="Enter your email" id="email" type="email" class="validate" name="umail"required>
                                         <label for="email" class="active" data-error="wrong" data-success="right"></label>
                                      </div>
                                   </div>
                                   <div class="row">
                                      <div class="input-field col s12">
                                        <i class=" small material-icons">input</i>
-                                        <input placeholder="Enter your password" id="password" type="password" class="validate">
+                                        <input placeholder="Enter your password" id="password" type="password" class="validate" name="upassword">
                                         <label for="password" class="active" data-error="wrong" data-success="right"></label>
                                      </div>
                                   </div>
+                                  <div class="card-action center-align">
+                                     <input type="submit" class="btn #ff3d00 deep-orange accent-3" name="Signin" value="Sign In">
+                                  </div>
                                </form>
-                            </div>
-                            <div class="card-action center-align">
-                               <input type="submit" class="btn #ff3d00 deep-orange accent-3" value="Sign In">
                             </div>
                             <div class="card-action center-align">
                               <a href="index.php">Click Here TO Go back</a>
