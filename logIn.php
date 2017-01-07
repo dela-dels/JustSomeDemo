@@ -1,22 +1,37 @@
 <?php
- include_once('config.php');
- include_once('class.user.php');
+include("config.php");
+session_start();
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  # code...
 
-  if (isset($_POST['Signin'])) {
-    # code...
-    $userMail = $_POST['umail'];
-    $userPassword = $_POST['upassword'];
+  //grabbing input from users
+  $username = mysqli_real_escape_string($db , $_POST['umail']);
+  $password = mysqli_real_escape_string($db , $_POST['upassword']);
 
-    print_r($userMail);
-    print_r($userPassword);
+  var_dump($username);
+  var_dump($password);
 
-  if ($user->userLogin($userMail,$userPassword)) {
-    # code...
-    $user->redirect('home.php');
-  }else {
-    # code...
-    $error = "Wrong Credentials!";
+  $userQuery = "SELECT * FROM users WHERE username = '$username' AND password='$password'";
+  $result    = mysqli_query($db ,$userQuery);
+  $queryRow  = mysqli_fetch_array($result , MYSQLI_ASSOC);
+  print_r($queryRow);
+  //$active    = $queryRow['active'];
+
+  $queryCount = mysqli_num_rows($result);
+
+  //print_r($queryCount);
+
+  if ($queryCount == 1) {
+
+    //$_SESSION['login_user'] = $username;
+
+    echo "<script>window.open('home.php','__self')";
+
+  //  header("Location : home.php");
+  }else{
+    $error = "Username Or Password is invalid";
   }
+
 }
  ?>
  <!DOCTYPE html>
@@ -48,18 +63,6 @@
                             <div class="card-content">
                                <span class="card-title black-text center-align">Sign In</span>
                                <form method="POST" action="" name="login">
-                                 <?php
-                                       if(isset($error))
-                                       {
-                                             ?>
-                                             <div class="modal">
-                                                 <div class="modal-content">
-                                                   <h4>Wrong details!</h4>
-                                                 </div> &nbsp; <?php echo $error; ?> !
-                                             </div>
-                                             <?php
-                                       }
-                                       ?>
                                   <div class="row">
                                      <div class="input-field col s12">
                                         <i class=" small material-icons">email</i>
@@ -75,7 +78,7 @@
                                      </div>
                                   </div>
                                   <div class="card-action center-align">
-                                     <input type="submit" class="btn #ff3d00 deep-orange accent-3" name="Signin" value="Sign In">
+                                     <input type="submit" class="btn #ff3d00 deep-orange accent-3" name="Signin" value="LOG IN">
                                   </div>
                                </form>
                             </div>
