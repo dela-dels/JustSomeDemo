@@ -1,45 +1,48 @@
 <?php
+include "config.php";
 
 class User{
 
-  private $db;
+  public $db;
 
-  function __construct($connection){
-    $this->db = $connection;
+  public function __construct(){
+    $this->db = new mysqli(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
+    if (mysqli_connect_errno()) {
+      # code...
+      echo "Error: Could Not connect to Database";
+      exit;
+    }
   }
-
-  //user login functions
   public function userLogin($userMail,$userPassword){
-    try {
+    $userPassword = md5($userPassword);
+    $loginQuery   = "SELECT * FROM users WHERE username='$userMail' AND password='$userPassword' ";
 
-      $stmt = $this->db->prepare('SELECT * FROM users WHERE  USERNAME = "$userMail" ');
-      $stmt->execute(array('USERNAME'=>$userMail));
-      $userRow = $stmt->fetch(PDO::FETCH_ASSOC);
+    //check if username is in the Table
+    $result   = mysqli_query($this->db,$loginQuery);
+    $userData = mysqli_fetch_array($result);
+    $rowCount = $result->num_rows;
 
-      if ($stmt->rowCount() > 0) {
-        # code...
-        if (password_verify($userPassword,$userRow['PASSWORD'])) {
-          # code...
-          $_SESSION['user_session'] = $userRow['USERNAME'];
-          return true;
-        }else{
-          return false;
-        }
-      }
-
-    } catch (PDOException $e) {
-      echo $e->getMessage();
+    if ($rowCount == 1) {
+      # code...
+      $_SESSION['login'] = true;
+      $_SESSION['uid']   = $userData['uid'];
+      return true;
+    }else {
+      # code...
+      return false;
     }
 
   }
 
-  public function redirect($url)
-   {
-       header("Location: $url");
-   }
+  public function getSession(){
+    return $_SESSION['login'];
+  }
 
+  public function userLogout(){
+    return $_SESSION['login'];
+    session_destroy();
+  }
 }
-
 
 
 
