@@ -2,8 +2,7 @@
 include("config.php");
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  # code...
-
+  
   //grabbing input from users
   $username = mysqli_real_escape_string($db , $_POST['umail']);
   $password = mysqli_real_escape_string($db , $_POST['upassword']);
@@ -14,24 +13,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $userQuery = "SELECT * FROM users WHERE username = '$username' AND password='$password'";
   $result    = mysqli_query($db ,$userQuery);
   $queryRow  = mysqli_fetch_array($result , MYSQLI_ASSOC);
-  print_r($queryRow);
-  //$active    = $queryRow['active'];
-
   $queryCount = mysqli_num_rows($result);
 
-  //print_r($queryCount);
-
-  if ($queryCount == 1) {
-
-    //$_SESSION['login_user'] = $username;
-
-    echo "<script>window.open('home.php','__self')";
-
-  //  header("Location : home.php");
+  if ($queryCount == 1){
+    header("Location:home.php");
   }else{
-    $error = "Username Or Password is invalid";
+    echo  "Username Or Password is invalid";
   }
-
+ mysqli_close($db);
 }
  ?>
  <!DOCTYPE html>
@@ -66,14 +55,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                   <div class="row">
                                      <div class="input-field col s12">
                                         <i class=" small material-icons">email</i>
-                                        <input placeholder="Enter your email" id="email" type="email" class="validate" name="umail"required>
+                                        <input placeholder="Enter your email" id="email" type="email" class="validate" name="umail" required>
                                         <label for="email" class="active" data-error="wrong" data-success="right"></label>
                                      </div>
                                   </div>
                                   <div class="row">
                                      <div class="input-field col s12">
                                        <i class=" small material-icons">input</i>
-                                        <input placeholder="Enter your password" id="password" type="password" class="validate" name="upassword">
+                                        <input placeholder="Enter your password" id="password" type="password" class="validate" name="upassword" required>
                                         <label for="password" class="active" data-error="wrong" data-success="right"></label>
                                      </div>
                                   </div>
