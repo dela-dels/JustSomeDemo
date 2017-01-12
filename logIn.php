@@ -2,13 +2,10 @@
 include("config.php");
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  
+
   //grabbing input from users
   $username = mysqli_real_escape_string($db , $_POST['umail']);
   $password = mysqli_real_escape_string($db , $_POST['upassword']);
-
-  var_dump($username);
-  var_dump($password);
 
   $userQuery = "SELECT * FROM users WHERE username = '$username' AND password='$password'";
   $result    = mysqli_query($db ,$userQuery);
@@ -20,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }else{
     echo  "Username Or Password is invalid";
   }
- mysqli_close($db);
+  mysqli_close($db);
 }
  ?>
  <!DOCTYPE html>
