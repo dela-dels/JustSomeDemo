@@ -118,10 +118,10 @@
         </div>
       </div>
       <div class="row center">
-        <a href="#"><i class="fa fa-instagram black-text" aria-hidden="true"></i></a>
-        <a href="#"><i class="fa fa-twitter black-text" aria-hidden="true"></i></a>
-        <a href="#"><i class="fa fa-facebook black-text" aria-hidden="true"></i></a>
-        <a href="#"><i class="fa fa-pinterest-square black-text" aria-hidden="true"></i></a>
+        <a href="#"><i class="fa fa-instagram fa-lg black-text" aria-hidden="true"></i></a>
+        <a href="#"><i class="fa fa-twitter fa-lg black-text" aria-hidden="true"></i></a>
+        <a href="#"><i class="fa fa-facebook fa-lg black-text" aria-hidden="true"></i></a>
+        <a href="#"><i class="fa fa-pinterest-square fa-lg black-text" aria-hidden="true"></i></a>
       </div>
     </div>
     <div class="footer-copyright">
