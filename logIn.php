@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $queryRow  = mysqli_fetch_array($result , MYSQLI_ASSOC);
   $queryCount = mysqli_num_rows($result);
 
-  if ($queryCount == 1){
+  if ($queryCount == 1){ 
     header("Location:home.php");
   }else{
     echo  "Username Or Password is invalid";
@@ -77,8 +77,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
           </div>
 
-  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-  <script src="js/pageJs.js" charset="utf-8"></script>
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+      <script src="js/pageJs.js" charset="utf-8"></script>
    </body>
  </html>
