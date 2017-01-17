@@ -1,0 +1,18 @@
+#headText{
+  font-family: 'Raleway', sans-serif;
+}
+.fa{
+  padding-right: 20px;
+}
+html , body{
+  height: 100%;
+}
+.wrapper{
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -245px;
+}
+.page-footer{
+  height: 245px;
+}
