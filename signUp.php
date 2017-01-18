@@ -1,12 +1,14 @@
 <?php
 include("config.php");
 session_start();
+//$_SESSION['']
 if (isset($_POST["signup"])) {
     $password1 = $_POST["passwordsign"];
     $password2 = $_POST["passwordsign2"];
     if($password1 == $password2){
         //grabbing input from users
         $usermail = mysqli_real_escape_string($db , $_POST['emailsign']);
+        $_SESSION['usermail2'] = $usermail;
         $userpassword = mysqli_real_escape_string($db , $_POST['passwordsign']);
 
         print_r($usermail);

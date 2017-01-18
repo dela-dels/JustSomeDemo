@@ -30,7 +30,14 @@ session_start();
     <nav class="navbar-collapse #ff3d00 deep-orange accent-3" id="superNav">
       <div class="nav-wrapper container">
         <a href="#" class="brand-logo">ShopBuddy.com.gh</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li>
+            <a href="login.php">Log In<i class="material-icons left">perm_identity</i></a>
+          </li>
+          <!--<li><a href="">Login</a></li>-->
+        </ul>
+        <ul id="nav-mobile" class="side-nav">
           <li>
             <a href="login.php">Log In<i class="material-icons left">perm_identity</i></a>
           </li>
