@@ -7,12 +7,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $username = mysqli_real_escape_string($db , $_POST['umail']);
   $password = mysqli_real_escape_string($db , $_POST['upassword']);
 
-  $userQuery = "SELECT * FROM users WHERE username = '$username' AND password='$password'";
+  $userQuery = "SELECT username, password FROM users WHERE username = '$username' AND password='$password'";
   $result    = mysqli_query($db ,$userQuery);
   $queryRow  = mysqli_fetch_array($result , MYSQLI_ASSOC);
   $queryCount = mysqli_num_rows($result);
 
-  if ($queryCount == 1){ 
+  if ($queryCount){
     header("Location:home.php");
   }else{
     echo  "Username Or Password is invalid";
