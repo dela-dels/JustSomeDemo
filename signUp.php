@@ -1,5 +1,36 @@
 <?php
+include("config.php");
+session_start();
+if (isset($_POST["signup"])) {
+    $password1 = $_POST["passwordsign"];
+    $password2 = $_POST["passwordsign2"];
+    if($password1 == $password2){
+        //grabbing input from users
+        $usermail = mysqli_real_escape_string($db , $_POST['emailsign']);
+        $userpassword = mysqli_real_escape_string($db , $_POST['passwordsign']);
 
+        print_r($usermail);
+        print_r($userpassword);
+
+        $userQuery = "INSERT INTO users (username, password) VALUES ('$usermail','$userpassword')";
+        $result    = mysqli_query($db ,$userQuery);
+        //$queryRow  = mysqli_fetch_array($result , MYSQLI_ASSOC);
+        //$queryCount = mysqli_num_rows($result);
+
+        if ($result == TRUE){
+          header("Location:moreDetails.php");
+          echo "Insert successful";
+        }else{
+          echo  "Insert unsuccessful";
+          echo $db->error;
+        }
+        mysqli_close($db);
+    }
+    else{
+        echo "Passwords don't match "."<br>";
+        echo "Please re-enter.";
+    }
+}
  ?>
  <!DOCTYPE html>
  <html>
@@ -34,7 +65,7 @@
       <div class="valign-wrapper" style="width:100%;height:100%;position:absolute;">
         <div id="login-page" class="row">
           <div class="col s12 z-depth-6 card-panel">
-            <form class="login-form">
+            <form class="login-form" action="" method="post">
               <div class="row">
                 <div class="input-field col s12 center">
                   <p class="center login-form-text">SignUp</p>
@@ -43,27 +74,27 @@
               <div class="row margin">
                 <div class="input-field col s12">
                 <!--  <i class=" small material-icons">email</i>-->
-                  <input placeholder="Enter your email" type="email" class="validate" required>
+                  <input placeholder="Enter your email" type="email" class="validate" name="emailsign" required>
                   <label for="email"></label>
                 </div>
               </div>
               <div class="row margin">
                 <div class="input-field col s12">
                 <!--  <i class=" small material-icons">lock</i>-->
-                  <input placeholder="Enter your password" type="email" class="validate" required>
+                  <input placeholder="Enter your password" type="password" class="validate" name="passwordsign" required>
                   <label for="password"></label>
                 </div>
               </div>
               <div class="row margin">
                 <div class="input-field col s12">
                   <!--<i class=" small material-icons">lock</i>-->
-                  <input placeholder="Re-enter password" id="email" type="email" class="validate" required>
+                  <input placeholder="Re-enter password" id="email" type="password" class="validate" name="passwordsign2" required>
                   <label for="password-again"></label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12 center-align">
-                  <input type="submit" class="btn #ff3d00 deep-orange accent-3" value="Sign Up">
+                  <input name="signup" type="submit" class="btn #ff3d00 deep-orange accent-3" value="Sign Up">
                 </div>
                 <div class="input-field col s12">
                   <p class="margin center medium-small sign-up">Already have an account? <a href="login.php">Login</a></p>
