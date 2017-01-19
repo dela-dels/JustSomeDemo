@@ -4,7 +4,7 @@
 .fa{
   padding-right: 20px;
 }
-html , body{
+/*html , body{
   height: 100%;
 }
 .wrapper{
@@ -15,4 +15,7 @@ html , body{
 }
 .page-footer{
   height: 245px;
+}*/
+.page-footer{
+  margin-bottom: 0px;
 }
