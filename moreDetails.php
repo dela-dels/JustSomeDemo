@@ -1,4 +1,31 @@
-<!DOCTYPE html>
+<?php
+include("config.php");
+//include("signUp.php");
+session_start();
+$usermail3 = $_SESSION['usermail2'];
+if (isset($_POST["submit"])) {
+    $firstname = $_POST["firstname"];
+    $lastname = $_POST["lastname"];
+    $mobilenumber = $_POST["mobilenumber"];
+    $address = $_POST["address"];
+
+    $userQuery = "UPDATE users SET firstname='$firstname', lastname='$lastname' , mobilenumber='$mobilenumber', address='$address' WHERE username='$usermail3'";
+    $result    = mysqli_query($db ,$userQuery);
+    //$queryRow  = mysqli_fetch_array($result , MYSQLI_ASSOC);
+    //$queryCount = mysqli_num_rows($result);
+
+    if ($result == TRUE){
+      header("Location:home.php");
+      echo "Insert successful";
+    }else{
+      echo  "Insert unsuccessful";
+      echo $db->error;
+    }
+    mysqli_close($db);
+}
+?>
+
+ <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -70,7 +97,7 @@
          </div>
          <div class="row">
            <div class="input-field col s12 center-align">
-             <input name="signup" type="submit" class="btn #ff3d00 deep-orange accent-3" value="Submit">
+             <input name="submit" type="submit" class="btn #ff3d00 deep-orange accent-3" value="Submit">
            </div>
            <!-- <div class="input-field col s12">
              <p class="margin center medium-small sign-up">Already have an account? <a href="login.php">Login</a></p>
