@@ -39,14 +39,9 @@
          e.preventDefault();
          if (counter < maxField) {
            counter ++;
-           $(wrapper).append('<tr> <td><div class="input-field "> <input type="text" class="validate" name="itemList[]"></div></td> <td><div class="input-field"><input  type="text" class="validate" name="itemList[]"></div><a href="#" class="removeField col s4"><img src="images/remove.png"></a></td></tr>')
+           $(wrapper).append('<tr> <td><div class="input-field col s6"> <input type="text" class="validate" name="itemList[]"></div></td> <td><div class="input-field col s6"><input  type="text" class="validate" name="itemList[]"></div></td></tr>')
          }
        });
-       $(wrapper).on("click","removeField",function(e){
-         e.preventDefault();
-         $(this).parent('td').remove();
-         counter --;
-       })
      })
 
      </script>
@@ -133,10 +128,9 @@
     <div class="footer-copyright">
       <div class="container">
        © 2016 Copyright ShopBuddy.com.gh
-      <!--<a class="grey-text text-lighten-4 right" href="#!">More Links</a>-->
       </div>
     </div>
-   </footer>
+  </footer>
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
