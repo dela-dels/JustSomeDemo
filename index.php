@@ -27,6 +27,7 @@ session_start();
   </head>
 <body>
    <!-- navigation bar -->
+<div class="navbar-fixed">
     <nav class="navbar-collapse #ff3d00 deep-orange accent-3" id="superNav">
       <div class="nav-wrapper container">
         <a href="#" class="brand-logo">ShopBuddy.com.gh</a>
@@ -45,6 +46,7 @@ session_start();
         </ul>
       </div>
     </nav>
+</div>
     <!--end of navbar-->
 
     <!--Parallax effect -->
