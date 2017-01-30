@@ -29,24 +29,39 @@ session_start();
   </head>
 <body>
    <!-- navigation bar -->
-<div class="navbar-fixed">
-    <nav class="navbar-collapse #ff3d00 deep-orange accent-3" id="superNav">
+  <!--<div class="navbar-fixed">
+      <nav class="navbar-collapse #ff3d00 deep-orange accent-3" id="superNav">
+        <div class="nav-wrapper container">
+          <a href="#" class="brand-logo">ShopBuddy</a>
+          <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li>
+              <a href="logIn.php">Log In<i class="material-icons left">perm_identity</i></a>
+            </li>
+          </ul>
+          <ul id="slide-out" class="side-nav">
+            <li>
+              <a href="logIn.php">Log In<i class="material-icons left">perm_identity</i></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+  </div>-->
+ <nav>
+    <div class="navbar-collapse #ff3d00 deep-orange accent-3" id="superNav">
       <div class="nav-wrapper container">
-        <a href="#" class="brand-logo">ShopBuddy</a>
-        <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+        <a href="#!" class="brand-logo">ShopBuddy</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-          <li>
-            <a href="login.php">Log In<i class="material-icons left">perm_identity</i></a>
-          </li>
+          <li><a href="Login.php">Log In <i class="material-icons left">perm_identity</i></a></li>
         </ul>
-        <ul id="slide-out" class="side-nav">
-          <li>
-            <a href="login.php">Log In<i class="material-icons left">perm_identity</i></a>
-          </li>
+        <ul class="side-nav" id="mobile-demo">
+          <li><a href="Login.php">Log In<i class="material-icons left">perm_identity</i></a></li>
         </ul>
       </div>
-    </nav>
-</div>
+      </div>
+  </nav>
+
     <!--end of navbar-->
 
     <!--Parallax effect -->
