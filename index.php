@@ -10,6 +10,7 @@ session_start();
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Libre+Franklin|Open+Sans" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+      <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 
       <!--Import Animate.css-->
       <link rel="stylesheet" href="materialize/css/animate.css">
@@ -23,6 +24,7 @@ session_start();
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <title>Home | ShopBuddy.com.gh</title>
   </head>
 <body>
@@ -30,19 +32,17 @@ session_start();
 <div class="navbar-fixed">
     <nav class="navbar-collapse #ff3d00 deep-orange accent-3" id="superNav">
       <div class="nav-wrapper container">
-        <a href="#" class="brand-logo">ShopBuddy.com.gh</a>
-        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        <a href="#" class="brand-logo">ShopBuddy</a>
+        <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <li>
             <a href="login.php">Log In<i class="material-icons left">perm_identity</i></a>
           </li>
-          <!--<li><a href="">Login</a></li>-->
         </ul>
-        <ul id="nav-mobile" class="side-nav">
+        <ul id="slide-out" class="side-nav">
           <li>
             <a href="login.php">Log In<i class="material-icons left">perm_identity</i></a>
           </li>
-          <!--<li><a href="">Login</a></li>-->
         </ul>
       </div>
     </nav>
@@ -102,7 +102,7 @@ session_start();
         <div class="col s6">
           <i class="medium material-icons">directions_bus</i></i>
           <div>
-            After our agents are done with the shopping, we take care of your delivery as well (based on your preferred point eg: office or home).
+            After our agents are done with the shopping, we take care of your delivery as well (based on your preferred point of collection eg: office or home).
             NB: There is cost for delivery aside cost for undergoing shopping on your behalf.
           </div>
         </div>
