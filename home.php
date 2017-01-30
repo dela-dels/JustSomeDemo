@@ -1,4 +1,5 @@
 <?php
+include("auth.php");
  ?>
 <!DOCTYPE html>
 <html>
@@ -25,11 +26,9 @@
       <!--Let browser know website is optimized for mobile-->
      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-     <!-- site stylesheet-->
-     <link rel="stylesheet" href="materialize/css/home.css">
-
      <script type="text/javascript">
      $(document).ready(function(){
+       $('select').material_select();
        var maxField  = 100;
        var wrapper   = $(".listWrapper");
        var addButton = $(".addField");
@@ -52,11 +51,15 @@
     <!-- navigation bar -->
  <nav class="navbar-collapse #ff3d00 deep-orange accent-3" id="superNav">
    <div class="nav-wrapper container">
-     <a href="index.php" class="brand-logo">ShopBuddy.com.gh</a>
+     <a href="index.php" class="brand-logo">ShopBuddy</a>
+     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
      <ul id="nav-mobile" class="right hide-on-med-and-down">
        <li>
          <a href="logOut.php">Log Out<i class="material-icons left">perm_identity</i></a>
-       <
+       </li>
+     </ul>
+     <ul class="side-nav" id="mobile-demo">
+       <li><a href="LogOut.php">Log Out<i class="material-icons left">perm_identity</i></a></li>
      </ul>
    </div>
  </nav>
@@ -103,6 +106,18 @@
             </tr>
           </tbody>
       </table>
+      <div class="center-btn">
+        <div class="input-field col s12">
+          <select class="" name="shopCenters" multiple>
+            <option value="" disabled select>Select Your Preferred Shopping Center</option>
+            <option value="Shoprite">Shoprite Accra Mall</option>
+            <option value="MaxMart">MaxMart Osu</option>
+            <option value="Marina">Marina Mall</option>
+            <label for="">Shopping Center</label>
+          </select>
+        </div>
+        <input type="submit" class="btn #ff3d00 deep-orange accent-3 center-align" name="sendList" value="SEND">
+      </div>
    </form>
  </div>
   </div>
