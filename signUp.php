@@ -1,37 +1,44 @@
 <?php
 include("config.php");
+include("vendor/password.php");
+
 session_start();
 //$_SESSION['']
-if (isset($_POST["signup"])) {
+if (isset($_POST["signup"])){
+
     $password1 = $_POST["passwordsign"];
     $password2 = $_POST["passwordsign2"];
+    $passwordHash1 = password_hash($password1, PASSWORD_BCRYPT, array("cost => 10"));
+    $comcode   = md5(uniqid(rand()));
+
+    //check if user email already exists
+    $usermail = mysqli_real_escape_string($db , $_POST['emailsign']);
+    $sqlQuery = "SELECT *  FROM users WHERE username = '$email'";
+    $qResult  = mysqli_query($db, $sqlQuery);
+    if (mysqli_num_rows($qResult) > 0) {
+      # code...
+      echo "<script>alert('Sorry , this email has already been taken')</script>";
+    }
+
     if($password1 == $password2){
         //grabbing input from users
         $usermail = mysqli_real_escape_string($db , $_POST['emailsign']);
         $_SESSION['usermail2'] = $usermail;
         $userpassword = mysqli_real_escape_string($db , $_POST['passwordsign']);
 
-        print_r($usermail);
-        print_r($userpassword);
-
-        $userQuery = "INSERT INTO users (username, password) VALUES ('$usermail','$userpassword')";
+        $userQuery = "INSERT INTO users (username, password, com_code) VALUES ('$usermail','$passwordHash1','$comcode')";
         $result    = mysqli_query($db ,$userQuery);
-        //$queryRow  = mysqli_fetch_array($result , MYSQLI_ASSOC);
-        //$queryCount = mysqli_num_rows($result);
+
 
         if ($result == TRUE){
           header("Location:moreDetails.php");
           echo "Insert successful";
-        }else{
-          echo  "Insert unsuccessful";
-          echo $db->error;
         }
-        mysqli_close($db);
-    }
-    else{
-        echo "Passwords don't match "."<br>";
-        echo "Please re-enter.";
-    }
+    } else{
+        echo"<script>alert('Something went wrong. Passowrds must match. please check and try again')</script>";
+      }
+
+          mysqli_close($db);
 }
  ?>
  <!DOCTYPE html>
