@@ -1,6 +1,6 @@
 <?php
 include("config.php");
-//include("signUp.php");
+include("auth.php");
 session_start();
 $usermail3 = $_SESSION['usermail2'];
 if (isset($_POST["submit"])) {
@@ -37,75 +37,91 @@ if (isset($_POST["submit"])) {
     <!--Import FontAwesome.css-->
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
 
-    <!-- site stylesheet-->
-    <link rel="stylesheet" href="materialize/css/login.css">
 
-    <!--Let browser know website is optimized for mobile-->
+   <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>One More Step | ShopBuddy.com.gh</title>
+
+    <style media="screen">
+      html , body{
+        height: 100%;
+      }
+      .wrapper{
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        margin: 0 auto -245px;
+      }
+      .page-footer{
+        height: 245px;
+      }
+      #headText{
+        font-family: 'Raleway', sans-serif;
+      }
+    </style>
   </head>
   <body>
+    <!-- navigation bar -->
+ <nav class="navbar-collapse #ff3d00 deep-orange accent-3" id="superNav">
+   <div class="nav-wrapper container">
+     <a href="index.php" class="brand-logo">ShopBuddy.com.gh</a>
+     <ul id="nav-mobile" class="right hide-on-med-and-down">
+       <li>
+         <a href="logOut.php">Log Out<i class="material-icons left">perm_identity</i></a>
+       <
+     </ul>
+   </div>
+ </nav>
+ <!--end of navbar-->
     <div class="wrapper">
-      <!-- navigation bar -->
-   <nav class="navbar-collapse #ff3d00 deep-orange accent-3" id="superNav">
-     <div class="nav-wrapper container">
-       <a href="index.php" class="brand-logo">ShopBuddy.com.gh</a>
-       <ul id="nav-mobile" class="right hide-on-med-and-down">
-         <li>
-           <a href="logOut.php">Log Out<i class="material-icons left">perm_identity</i></a>
-         <
-       </ul>
-     </div>
-   </nav>
-   <!--end of navbar-->
-   <div class="row container center" id="headText">
-     <h4>One more thing before you give fill out your order form.</h4>
-   </div>
-   <div class="container">
-     <form class="col s12" action="" method="POST">
-         <div class="row">
-           <div class="input-field col s8 center">
-             <p class="center login-form-text">Personal Information</p>
-           </div>
-         </div>
-         <div class="row margin col s8 center-align">
-           <div class="input-field col s4">
-           <!--  <i class=" small material-icons">email</i>-->
-             <input placeholder="First Name" type="text" class="validate" name="firstname" required>
-             <label for="firstname"></label>
-           </div>
-           <div class="input-field col s4">
-           <!--  <i class=" small material-icons">lock</i>-->
-             <input placeholder="Last Name" type="text" class="validate" name="lastname" required>
-             <label for="lastname"></label>
-           </div>
-         </div>
-         <div class="row margin">
+       <div class="row container center" id="headText">
+         <h4>One more thing for you to give.Fill out your order form.</h4>
+       </div>
+       <div class="container">
+         <form class="col s12" action="" method="POST">
+             <div class="row">
+               <div class="input-field col s8 center">
+                 <p class="center login-form-text">Personal Information</p>
+               </div>
+             </div>
+             <div class="row margin col s8 center-align">
+               <div class="input-field col s4">
+               <!--  <i class=" small material-icons">email</i>-->
+                 <input placeholder="First Name" type="text" class="validate" name="firstname" required>
+                 <label for="firstname"></label>
+               </div>
+               <div class="input-field col s4">
+               <!--  <i class=" small material-icons">lock</i>-->
+                 <input placeholder="Last Name" type="text" class="validate" name="lastname" required>
+                 <label for="lastname"></label>
+               </div>
+             </div>
+             <div class="row margin">
 
-         </div>
-         <div class="row margin">
-           <div class="input-field col xs6">
-             <!--<i class=" small material-icons">lock</i>-->
-             <input placeholder="Mobile Number" type="text" class="validate" name="mobilenumber" required>
-             <label for="mobilenumber"></label>
-           </div>
-           <div class="input-field col s6">
-             <!--<i class=" small material-icons">lock</i>-->
-             <input placeholder="Address" type="text" class="validate" name="address" required>
-             <label for="address"></label>
-           </div>
-         </div>
-         <div class="row">
-           <div class="input-field col s12 center-align">
-             <input name="submit" type="submit" class="btn #ff3d00 deep-orange accent-3" value="Submit">
-           </div>
-           <!-- <div class="input-field col s12">
-             <p class="margin center medium-small sign-up">Already have an account? <a href="login.php">Login</a></p>
-           </div> -->
-         </div>
-     </form>
-   </div>
-    </div>
+             </div>
+             <div class="row margin">
+               <div class="input-field col xs6">
+                 <!--<i class=" small material-icons">lock</i>-->
+                 <input placeholder="Mobile Number" type="text" class="validate" name="mobilenumber" required>
+                 <label for="mobilenumber"></label>
+               </div>
+               <div class="input-field col s6">
+                 <!--<i class=" small material-icons">lock</i>-->
+                 <input placeholder="Address" type="text" class="validate" name="address" required>
+                 <label for="address"></label>
+               </div>
+             </div>
+             <div class="row">
+               <div class="input-field col s12 center-align">
+                 <input name="submit" type="submit" class="btn #ff3d00 deep-orange accent-3" value="Submit">
+               </div>
+               <!-- <div class="input-field col s12">
+                 <p class="margin center medium-small sign-up">Already have an account? <a href="login.php">Login</a></p>
+               </div> -->
+             </div>
+         </form>
+       </div>
+      </div>
 
   <footer class="page-footer #ff3d00 deep-orange accent-3">
       <div class="container">
