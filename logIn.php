@@ -1,29 +1,44 @@
 <?php
 include("config.php");
+include("vendor/password.php");
+
 session_start();
+
+if (isset($_SESSION['username'])) {
+  # code...
+  header("location:home.php");
+  exit();
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-  //grabbing input from users
   $username = mysqli_real_escape_string($db , $_POST['umail']);
-  $password = mysqli_real_escape_string($db , $_POST['upassword']);
 
-  $userQuery = "SELECT username, password FROM users WHERE username = '$username' AND password='$password'";
-  $result    = mysqli_query($db ,$userQuery);
-  $queryRow  = mysqli_fetch_array($result , MYSQLI_ASSOC);
+  $userQuery = "SELECT username, password FROM users WHERE username = '$username'";
+  $result    = mysqli_query($db, $userQuery);
+  $queryRow  = mysqli_fetch_array($result, MYSQLI_ASSOC);
   $queryCount = mysqli_num_rows($result);
 
-  if ($queryCount){
+
+
+  $verifyPassword = password_verify($_POST['upassword'], $queryRow['password']);
+
+  if ($verifyPassword){
+    $_SESSION['username'] = $username;
     header("Location:home.php");
   }else{
     echo  "Username Or Password is invalid";
   }
   mysqli_close($db);
 }
- ?>
+?>
  <!DOCTYPE html>
  <html>
    <head>
      <meta charset="utf-8">
+     <meta http-equiv="cache-control" content="private, max-age=0, no-cache">
+     <meta http-equiv="pragma" content="no-cache">
+     <meta http-equiv="expires" content="0">
      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
      <link href="https://fonts.googleapis.com/css?family=Libre+Franklin|Open+Sans" rel="stylesheet">
      <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
@@ -48,17 +63,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                          <div class="card">
                             <div class="card-content">
                                <span class="card-title black-text center-align">Sign In</span>
-                               <form method="POST" action="" name="login">
+                               <form method="POST" action="logIn.php" name="login">
                                   <div class="row">
                                      <div class="input-field col s12">
-                                        <i class=" small material-icons">email</i>
                                         <input placeholder="Enter your email" id="email" type="email" class="validate" name="umail" required>
                                         <label for="email" class="active" data-error="wrong" data-success="right"></label>
                                      </div>
                                   </div>
                                   <div class="row">
                                      <div class="input-field col s12">
-                                       <i class=" small material-icons">input</i>
                                         <input placeholder="Enter your password" id="password" type="password" class="validate" name="upassword" required>
                                         <label for="password" class="active" data-error="wrong" data-success="right"></label>
                                      </div>
