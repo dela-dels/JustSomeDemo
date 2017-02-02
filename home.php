@@ -1,5 +1,16 @@
 <?php
 include("auth.php");
+
+if (isset($_POST['sendList'])) {
+  # code...
+  foreach ($_POST as $key => $value) {
+    # code...
+    if ($key == 'itemName' && $key == 'itemQuantity') {
+      # code...
+      print_r($value);
+    }
+  }
+}
  ?>
 <!DOCTYPE html>
 <html>
@@ -38,7 +49,7 @@ include("auth.php");
          e.preventDefault();
          if (counter < maxField) {
            counter ++;
-           $(wrapper).append('<tr> <td><div class="input-field col s6"> <input type="text" class="validate" name="itemList[]"></div></td> <td><div class="input-field col s6"><input  type="text" class="validate" name="itemList[]"></div></td></tr>')
+           $(wrapper).append('<tr> <td><div class="input-field col s6"> <input type="text" class="validate" name="itemName[]"></div></td> <td><div class="input-field col s6"><input  type="text" class="validate" name="itemQuantity[]"></div></td></tr>')
          }
        });
      })
@@ -83,24 +94,24 @@ include("auth.php");
             <tr>
               <td>
                 <div class="input-field col s6">
-                  <input type="text" class="validate" name="itemList[]">
+                  <input type="text" class="validate" name="itemName[]">
                 </div>
               </td>
               <td>
                 <div class="input-field col s6">
-                  <input  type="text" class="validate" name="itemList[]">
+                  <input  type="text" class="validate" name="itemQuantity[]">
                 </div>
               </td>
             </tr>
             <tr>
               <td>
                 <div class="input-field col s6">
-                  <input type="text" class="validate" name="itemList[]">
+                  <input type="text" class="validate" name="itemName[]">
                 </div>
               </td>
               <td>
                 <div class="input-field col s6">
-                  <input  type="text" class="validate" name="itemList[]">
+                  <input  type="text" class="validate" name="itemQuantity[]">
                 </div>
               </td>
             </tr>
