@@ -1,6 +1,8 @@
 <?php
 include("auth.php");
 
+// session_start();
+
 if (isset($_POST['sendList'])) {
   # code...
   foreach ($_POST as $key => $value) {
