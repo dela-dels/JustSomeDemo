@@ -4,11 +4,11 @@ include("vendor/password.php");
 
 session_start();
 
-if (isset($_SESSION['username'])) {
-  # code...
-  header("location:home.php");
-  exit();
-}
+// if (isset($_SESSION['username'])) {
+//   # code...
+//   header("location:home.php");
+//   exit();
+// }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if ($verifyPassword){
     $_SESSION['username'] = $username;
-    header("Location:home.php");
+    header('Location:home.php');
   }else{
     echo  "Username Or Password is invalid";
   }
